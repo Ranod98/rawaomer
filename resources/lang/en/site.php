@@ -1,1 +1,4 @@
 <?php
+return [
+    'dashboard'=>'Dashboard'
+];
