@@ -144,10 +144,10 @@ return [
         'name'                  => 'ناو',
         'username'              => 'ناوی بەکارهێنەر',
         'email'                 => 'پۆستی ئەلیکترۆنی',
-        'first_name'            => 'ناوی یەکەم',
-        'last_name'             => 'ناوی باوک',
-        'password'              => 'تێپەڕەوشە',
-        'password_confirmation' => 'تێپەڕەوشەی دڵنیاکردنەوە',
+        'first_name'            => 'ناوی یه‌كه‌م',
+        'last_name'             => 'ناوی كۆتا',
+        'password'              => 'وشه‌ی نهێنی',
+        'password_confirmation' => 'دڵنیابوونه‌وه‌ له‌ وشه‌ی نهێنی',
         'city'                  => 'شار',
         'country'               => 'وڵات',
         'address'               => 'ناونیشان',
@@ -170,6 +170,8 @@ return [
         'time'                  => 'کات',
         'available'             => 'بەردەستە',
         'size'                  => 'قەبارە',
+        'image'                 =>'وێنه‌',
+        'permission'            =>'ده‌سه‌ڵاته‌كان',
     ],
 
 ];
