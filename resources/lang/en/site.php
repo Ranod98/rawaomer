@@ -23,6 +23,7 @@ return [
     'yes'=>'Yes',
     'no'=>'No',
     'team'=>'Team',
+    'type'=>'Type',
 
 
 
@@ -37,6 +38,7 @@ return [
     'full_name'=>'Full Name',
     'degree'=>'Degree',
     'skill'=>'Skill',
+    'name'=>'Name',
 
 
 

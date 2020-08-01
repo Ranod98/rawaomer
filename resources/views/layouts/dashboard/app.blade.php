@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@yield('title', 'naznam xwa xoe azane')</title>
+    <title>@yield('title', '')</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -156,16 +156,25 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-copy"></i>
                             <p>
-                                @lang('site.all_project')
+                                @lang('site.type')
                                 <i class="fas fa-angle-left right"></i>
-                                <span class="badge badge-info right">6</span>
+
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
+                                <a href="{{route('dashboard.types.index')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>@lang('site.type')</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
                                 <a href="pages/layout/top-nav.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>@lang('site.project')</p>
+                                    <p>@lang('site.all_project')</p>
                                 </a>
                             </li>
 
