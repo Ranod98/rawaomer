@@ -12,6 +12,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
         //user route
         Route::resource('users','UserController')->except(['show']);
 
+        //team route
+        Route::resource('teams','TeamController');
+
     });// end of dashboard routes
 
 

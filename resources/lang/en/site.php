@@ -22,6 +22,9 @@ return [
     'confirm_delete'=>'Confirm Delete',
     'yes'=>'Yes',
     'no'=>'No',
+    'team'=>'Team',
+
+
 
 
 
@@ -31,6 +34,9 @@ return [
     'password'=>'Password',
     'password_confirmation'=>'Password Confirmation',
     'image'=>'Image',
+    'full_name'=>'Full Name',
+    'degree'=>'Degree',
+    'skill'=>'Skill',
 
 
 
@@ -47,6 +53,8 @@ return [
     'search'=>'Search',
     'read'=>'Read',
     'update'=>'Update',
+    'created'=>'Created',
+    'updated'=>'Updated',
 
 
 ];

@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['register'=>false]);
+Auth::routes(['register'=>false,['verify'=>true]]);
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -24,10 +24,17 @@ class UserController extends Controller
     public function index(Request $request)
     {
 
-        $users = User::whereRoleIs('admin')->when($request->search,function ($query) use ($request){
-            return $query->where('first_name','like','%'.$request->search.'%')
-                ->orWhere('last_name','like','%'.$request->search.'%');
+        $users = User::whereRoleIs('admin')->where(function ($q) use ($request) {
+
+            return $q->when($request->search, function ($query) use ($request) {
+
+                return $query->where('first_name', 'like', '%' . $request->search . '%')
+                    ->orWhere('last_name', 'like', '%' . $request->search . '%');
+
+            });
+
         })->latest()->paginate(5);
+        
 
         return view('dashboard.user.index',compact('users'));
     }

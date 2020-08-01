@@ -1,5 +1,6 @@
 
 @extends('layouts.dashboard.app')
+@section('title', 'User-Edit')
 @section('content')
 
     <!-- Content Header (Page header) -->
