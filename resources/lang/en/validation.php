@@ -155,6 +155,14 @@ return [
         'last_name'             => 'Last Name',
         'password'              => 'Password',
         'password_confirmation' => 'Password Confirmation',
+        'permission'            =>'Permission',
+        'skill'                 =>'Skill',
+        'full_name'             =>'Full Name',
+        'degree'                =>'Degree',
+        'type'                  =>'Type',
+        'team'                  =>'Team',
+        'lang'                  =>'Lang',
+        'link'                  =>'Link',
     ],
 
 ];

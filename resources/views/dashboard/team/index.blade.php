@@ -59,7 +59,7 @@
                         <tr>
                             <th style="width: 10px">#</th>
                             <th>@lang('site.full_name')</th>
-                            <th>@lang('site.degree')</th>
+                            <th>@lang('site.related_project')</th>
                             <th>@lang('site.email')</th>
                             <th>@lang('site.project')</th>
                             <th>@lang('site.image')</th>
@@ -74,9 +74,9 @@
                             <tr>
                                 <td>{{$index + 1}}</td>
                                 <td>{{$teams->full_name}}</td>
-                                <td>{{$teams->degree}}</td>
+                                <td>{{$teams->teamProject->count()}}</td>
                                 <td>{{$teams->email}}</td>
-                                <td>{{$teams->project}}</td>
+                                <th><a href="{{ route('dashboard.projects.index',['team_id'=>$teams->id]) }}" class="btn btn-info btn-sm"><i class="fa fa-book"></i> @lang('site.project')</a></th>
                                 <td><img src="{{$teams->image_path}}" style="width: 60px" class="img-thumbnail" alt=""></td>
                                 <td>{{$teams->created_at->diffForHumans()}}</td>
                                 <td>{{$teams->updated_at->diffForHumans()}}</td>

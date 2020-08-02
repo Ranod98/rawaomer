@@ -1,6 +1,6 @@
 
 @extends('layouts.dashboard.app')
-@section('title', 'Type-Index')
+@section('title', 'Project-Index')
 @section('content')
 
     <!-- Content Header (Page header) -->
@@ -8,12 +8,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">@lang('site.type')</h1>
+                    <h1 class="m-0 text-dark">@lang('site.project')</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('dashboard.index')}}">@lang('site.dashboard')</a></li>
-                        <li class="breadcrumb-item active">@lang('site.type')</li>
+                        <li class="breadcrumb-item"><a href="{{route('dashboard.types.index')}}">@lang('site.type')</a></li>
+                        <li class="breadcrumb-item active">@lang('site.project')</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -26,13 +27,13 @@
         <!-- general form elements -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">@lang('site.type')<small> {{$types->total()}}</small></h3>
+                <h3 class="card-title">@lang('site.project')<small> {{$projects->total()}}</small></h3>
 
             </div>
             <!-- /.card-header -->
 
             <div class="card-body">
-                <form action="{{route('dashboard.types.index')}}"  method="get">
+                <form action="{{route('dashboard.projects.index')}}"  method="get">
 
                     <div class="row">
                         <div class ="col-md-4">
@@ -43,7 +44,7 @@
                             <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> @lang('site.search')</button>
 
                             @if(auth()->user()->hasPermission('clint_side_create'))
-                                <a href="{{route('dashboard.types.create')}}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.add')</a>
+                                <a href="{{route('dashboard.projects.create')}}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.add')</a>
                             @else
                                 <button type="submit" class="btn btn-primary disabled"><i class="fa fa-plus"></i> @lang('site.add')</button>
                             @endif
@@ -53,14 +54,16 @@
 
                 </form>
                 <br>
-                @if($types->count() > 0)
+                @if($projects->count() > 0)
                     <table class="table table-bordered">
                         <thead>
                         <tr>
                             <th style="width: 10px">#</th>
                             <th>@lang('site.name')</th>
-                            <th>@lang('site.related_project')</th>
-                            <th>@lang('site.project')</th>
+                            <th>@lang('site.type')</th>
+                            <th>@lang('site.team')</th>
+                            <th>@lang('site.link')</th>
+                            <th>@lang('site.image')</th>
                             <th>@lang('site.created')</th>
                             <th>@lang('site.updated')</th>
                             <th>@lang('site.action')</th>
@@ -68,28 +71,30 @@
                         </thead>
 
                         <tbody>
-                        @foreach($types as $index=>$type)
+                        @foreach($projects as $index=>$project)
                             <tr>
-                                <td>{{ $index + 1 }}</td>
-                                <td>{{ $type->name }}</td>
-                                <td>{{ $type->TypeProject->count()  }}</td>
-                                <th><a href="{{ route('dashboard.projects.index',['type_id'=>$type->id]) }}" class="btn btn-info btn-sm"><i class="fa fa-book"></i> @lang('site.project')</a></th>
-                                <td>{{ $type->created_at->diffForHumans() }}</td>
-                                <td>{{ $type->updated_at->diffForHumans() }}</td>
+                                <td>{{$index + 1}}</td>
+                                <td>{{$project->name}}</td>
+                                <td>{{$project->projectType['name']}}</td>
+                                <td>{{$project->projectTeam->full_name}}</td>
+                                <td>{{$project->link}}</td>
+                                <td><img src="{{$project->image_path}}" style="width: 60px" class="img-thumbnail" alt=""></td>
+                                <td>{{$project->created_at->diffForHumans()}}</td>
+                                <td>{{$project->updated_at->diffForHumans()}}</td>
 
 
                                 <td>
 
-                                    @if(auth()->user()->hasPermission('project_update'))
-                                        <a href="{{route('dashboard.types.edit',$type->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
+                                    @if(auth()->user()->hasPermission('clint_side_update'))
+                                        <a href="{{route('dashboard.projects.edit',$project->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
                                     @else
                                         <button type="submit" class="btn btn-info btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</button>
                                     @endif
 
 
 
-                                    @if(auth()->user()->hasPermission('project_delete'))
-                                        <form action="{{route('dashboard.types.destroy',$type->id)}}" method="post" style="display: inline-block">
+                                    @if(auth()->user()->hasPermission('clint_side_delete'))
+                                        <form action="{{route('dashboard.projects.destroy',$project->id)}}" method="post" style="display: inline-block">
                                             {{csrf_field()}}
                                             {{method_field('delete')}}
                                             <button type="submit" class="btn btn-danger delete btn-sm"><i class="fa fa-trash"></i> @lang('site.delete')</button>
@@ -106,7 +111,7 @@
                     </table>
                     <br>
 
-                    {{$types->appends(request()->query())->links()}}
+                    {{$projects->appends(request()->query())->links()}}
 
                 @else
                     <h2>@lang('site.no_data_found')</h2>

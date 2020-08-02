@@ -24,6 +24,7 @@ return [
     'no'=>'No',
     'team'=>'Team',
     'type'=>'Type',
+    'feedback'=>'Feedback',
 
 
 
@@ -39,12 +40,21 @@ return [
     'degree'=>'Degree',
     'skill'=>'Skill',
     'name'=>'Name',
+    'link'=>'Link',
+    'lang'=>'Language',
+    'description'=>'Description',
+    'subject'=>'Subject',
+    'message'=>'Message',
+    'visitor'=>'Visitor',
 
 
 
     'action'=>'Action',
     'no_data_found'=>'No Date Found',
     'permissions'=>'Permissions',
+    'related_project'=>'Related Project',
+    'all_type'=>'All Type',
+    'all_team'=>'All Team',
 
 
 

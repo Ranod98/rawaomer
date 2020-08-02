@@ -11,6 +11,14 @@ use Intervention\Image\Facades\Image;
 
 class TeamController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:clint_side_read'])->only('index');
+        $this->middleware(['permission:clint_side_create'])->only('create');
+        $this->middleware(['permission:clint_side_update'])->only('edit');
+        $this->middleware(['permission:clint_side_delete'])->only('destroy');
+    }// end of construct
+
 
     public function index(Request $request)
     {

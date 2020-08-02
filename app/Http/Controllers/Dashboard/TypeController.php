@@ -10,6 +10,13 @@ use Illuminate\Validation\Rule;
 class TypeController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware(['permission:project_read'])->only('index');
+        $this->middleware(['permission:project_create'])->only('create');
+        $this->middleware(['permission:project_update'])->only('edit');
+        $this->middleware(['permission:project_delete'])->only('destroy');
+    }
     public function index(Request $request)
     {
 

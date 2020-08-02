@@ -16,7 +16,15 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
         Route::resource('teams','TeamController');
 
         //type route
-        Route::resource('types','TypeController')->except(['show']);;
+        Route::resource('types','TypeController')->except(['show']);
+
+        //project route
+        Route::resource('projects','ProjectController');
+
+        //feedback route
+        Route::resource('feedbacks','FeedbackController');
+
+
 
     });// end of dashboard routes
 
