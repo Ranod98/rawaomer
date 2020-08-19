@@ -12,7 +12,7 @@ class FeedbackController extends Controller
     public function __construct()
     {
         $this->middleware(['permission:clint_side_read'])->only('index');
-        $this->middleware(['permission:clint_side_create'])->only('create');
+
         $this->middleware(['permission:clint_side_update'])->only('edit');
         $this->middleware(['permission:clint_side_delete'])->only('destroy');
     }// end of construct
@@ -29,19 +29,37 @@ class FeedbackController extends Controller
 
     public function create()
     {
-        //
+        return view('frontend.contact');
+
     }//end of create
+
+
 
 
     public function store(Request $request)
     {
 
+         $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'subject'=>'required',
+            'message'=>'required',
+        ]);
+
+        $request_data = $request->all();
+        $feedback = Feedback::create($request_data);
+
+        return  redirect(route('frontend.index'));
+
+
     }//end of store
+
+
 
 
     public function show(Feedback $feedback)
     {
-        //
+        return view('dashboard.feedback.show',compact('feedback'));
     }//end of show
 
 

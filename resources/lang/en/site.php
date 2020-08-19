@@ -24,7 +24,7 @@ return [
     'no'=>'No',
     'team'=>'Team',
     'type'=>'Type',
-    'feedback'=>'Feedback',
+    'show'=>'Show',
 
 
 
@@ -55,6 +55,8 @@ return [
     'related_project'=>'Related Project',
     'all_type'=>'All Type',
     'all_team'=>'All Team',
+    'feeback_of'=>'Feedback of',
+    'time_of_send'=>'Time of send',
 
 
 

@@ -162,7 +162,7 @@ return [
         'type'                  =>'Type',
         'team'                  =>'Team',
         'lang'                  =>'Lang',
-        'link'                  =>'Link',
+        'link'                  =>'L ink',
     ],
 
 ];

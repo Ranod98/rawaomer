@@ -1,6 +1,6 @@
 
 @extends('layouts.dashboard.app')
-@section('title', 'Team-Index')
+@section('title', 'Feedback-Index')
 @section('content')
 
     <!-- Content Header (Page header) -->
@@ -55,6 +55,7 @@
                             <th>@lang('site.email')</th>
                             <th>@lang('site.subject')</th>
                             <th>@lang('site.message')</th>
+                            <th>@lang('site.show')</th>
                             <th>@lang('site.created')</th>
                             <th>@lang('site.updated')</th>
 
@@ -67,8 +68,9 @@
                                 <td>{{$index + 1}}</td>
                                 <td>{{$feedbacks->name}}</td>
                                 <td>{{$feedbacks->email}}</td>
-                                <td>{{$feedbacks->subject}}</td>
-                                <td>{{$feedbacks->message}}</td>
+                                <td>{{\Illuminate\Support\Str::limit($feedbacks->subject,5)}}</td>
+                                <td>{{\Illuminate\Support\Str::limit($feedbacks->message,30,'....')}}</td>
+                                <td><a href="{{route('dashboard.feedbacks.show',$feedbacks->id)}}"><i class="fa fa-list-alt"></i> @lang('site.show')</a></td>
 
                                 <td>{{$feedbacks->created_at->diffForHumans()}}</td>
                                 <td>{{$feedbacks->updated_at->diffForHumans()}}</td>
